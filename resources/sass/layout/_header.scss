@@ -1,0 +1,112 @@
+// /* ===== HEADER ===== */
+.header {
+	min-height: 60rem;
+	height: 85vh;
+	background: linear-gradient(
+			to bottom right,
+			rgba($primary-color-light, 0.8),
+			rgba($primary-color-dark, 0.8)
+		),
+		url("../img/hero-small.jpg");
+	background-size: cover;
+	background-position: top;
+	// -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+	// clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+	position: relative;
+	overflow: hidden;
+
+	// ====================
+	transform: skewY(-4deg);
+	transform-origin: top left;
+	height: 97vh;
+	margin-top: -7vh;
+
+	@include respond(tab-port) {
+		transform: skewY(-7deg);
+	}
+
+	&::after {
+		display: block;
+		content: "";
+		width: 110%;
+		height: 3rem;
+		background-color: $color-white;
+		position: absolute;
+		left: 0;
+		top: calc(7vh - 3rem);
+		transform: skewY(4deg);
+		transform-origin: top left;
+
+		@include respond(tab-port) {
+			transform: skewY(7deg);
+		}
+	}
+	// ====================
+
+	// @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+	// 	-webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+	// 	clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+	// 	height: 95vh;
+	// }
+
+	// diferent viewport for diferent image with diferent resolution (similer to art direction)
+	@media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+		/* // safari browser does not support min-resolution */ only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+		only screen and (min-width: 125em) {
+		background: linear-gradient(
+				to bottom right,
+				rgba($primary-color-light, 0.8),
+				rgba($primary-color-dark, 0.8)
+			),
+			url("../img/hero.jpg");
+		background-size: cover;
+		background-position: top;
+		background-repeat: no-repeat;
+	}
+
+	// @include respond(small-phone) {
+	// 	-webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+	// 	clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+	// }
+
+	//  /* ===NESTING=== */
+
+	&__logo-box {
+		position: absolute;
+		top: 8rem;
+		top: calc(6rem + 7vh);
+		left: 4rem;
+		transform: skewY(4deg);
+
+		@include respond(tab-land) {
+			top: calc(7rem + 7vh);
+		}
+
+		@include respond(tab-port) {
+			top: calc(5.5rem + 7vh);
+			transform: skewY(7deg);
+		}
+	}
+
+	&__logo {
+		height: 3.5rem;
+
+		@include respond(phone) {
+			height: 4rem;
+		}
+	}
+
+	// /* ===Header_texts=== */
+	&__text-box {
+		position: absolute;
+		top: 40%;
+		left: 50%;
+		// transform: translate(-50%, -50%);
+		transform: translate(-50%, -10%) skewY(8deg);
+		text-align: center;
+
+		@include respond(tab-port) {
+			transform: translate(-50%, -10%) skewY(14deg);
+		}
+	}
+}

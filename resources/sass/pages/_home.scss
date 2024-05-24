@@ -1,0 +1,83 @@
+.section-about {
+	background-color: $color-gray-light-1;
+	padding: 26rem 1rem;
+	margin-top: -18rem;
+	// display: none;
+}
+
+.section-features {
+	// margin-top: 1rem !important;
+	padding: 22rem 1rem;
+	margin-top: -4rem;
+	background: linear-gradient(
+			to bottom right,
+			rgba($primary-color-light, 0.8),
+			rgba($primary-color-dark, 0.8)
+		),
+		url("../img/nat-4-small.jpg");
+	background-size: cover;
+	transform: skewY(-4deg);
+	transform-origin: top left;
+
+	// =================================================
+
+	@include respond(tab-port) {
+		transform: skewY(-7deg);
+	}
+
+	@media (min-resolution: 192dpi) and (min-width: 37.5em),
+		(-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+		(min-width: 125em) {
+		background: linear-gradient(
+				to bottom right,
+				rgba($primary-color-light, 0.8),
+				rgba($primary-color-dark, 0.8)
+			),
+			url("../img/nat-4-large.jpg");
+
+		background-size: cover;
+		background-position: center;
+	}
+
+	// =================================================
+
+	& > * {
+		transform: skewY(8deg);
+
+		@include respond(tab-port) {
+			transform: skewY(14deg);
+		}
+	}
+}
+
+.section-tours {
+	background-color: $color-gray-light-1;
+	padding: 26rem 1rem 15rem;
+	margin-top: -18rem;
+
+	@include respond(tab-port) {
+		padding: 26rem 1rem 10rem;
+	}
+}
+
+.section-stories {
+	padding: 15rem 0;
+	position: relative;
+
+	@include respond(tab-port) {
+		padding: 10rem 0;
+	}
+}
+
+.section-book {
+	padding: 15rem 1rem;
+	background-image: linear-gradient(
+		to right bottom,
+		$primary-color-light,
+		$primary-color-dark
+	);
+
+	@include respond(tab-port) {
+		padding: 10rem 0;
+	}
+}
